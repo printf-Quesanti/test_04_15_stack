@@ -9,6 +9,17 @@ void test1()
 	Stackpush(&st, 3);
 	Stackpush(&st, 4);
 	Stackpush(&st, 5);
+
+	Stackpop(&st);
+	printf("%d\n", Stacktop(&st));
+	printf("%d\n", Stacksize(&st));
+	printf("%d\n", Stackempty(&st));
+	while (!Stackempty(&st))
+	{
+		printf("%d ", Stacktop(&st));
+		Stackpop(&st);
+	}
+	Stackdestroy(&st);
 }
 
 

@@ -39,9 +39,42 @@ void Stackpush(ST* ps, STdatatype x)
 	ps->top++;
 }
 
-void Stacklpop()
+bool Stackempty(ST* ps)
 {
+	assert(ps);
 
+	return ps->top == 0;
+}
+
+
+void Stackpop(ST* ps)//³öÕ»
+{
+	assert(ps);
+	assert(!Stackempty(ps));
+	ps->top--;
+}
+
+STdatatype Stacktop(ST* ps)
+{
+	assert(ps);
+	assert(!Stackempty(ps));
+	return ps->a[ps->top-1];
+}
+
+int Stacksize(ST* ps)
+{
+	assert(ps);
+
+	return ps->top;
+}
+
+
+void Stackdestroy(ST* ps)
+{
+	assert(ps);
+	free(ps->a);
+	ps->a = NULL;
+	ps->capacity = ps->top = 0;
 }
 
 void Stackinit(ST* ps);
